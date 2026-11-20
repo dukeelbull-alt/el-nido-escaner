@@ -63,14 +63,20 @@
       escaner = new Html5Qrcode("lector");
 
       escaner.start(
-        { facingMode: "environment" },
-        {
-          fps: 10,
-          qrbox: { width: 280, height: 130 },
-          formatsToSupport: [
-            Html5QrcodeSupportedFormats.EAN_13
-          ]
-        },
+  { facingMode: "environment" },
+  {
+    fps: 15,
+    qrbox: { width: 320, height: 160 },
+    aspectRatio: 1.777,
+    videoConstraints: {
+      facingMode: "environment",
+      width: { ideal: 1920 },
+      height: { ideal: 1080 }
+    },
+    formatsToSupport: [
+      Html5QrcodeSupportedFormats.EAN_13
+    ]
+  },
         function(isbn) {
           mensaje.textContent = "ISBN leído: " + isbn;
 
