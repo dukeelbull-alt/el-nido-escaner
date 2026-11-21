@@ -201,7 +201,7 @@ videoConstraints: {
           const capacidades = escaner.getRunningTrackCameraCapabilities();
           if (capacidades.zoom) {
   escaner.applyVideoConstraints({
-    advanced: [{ zoom: 2 }]
+    advanced: [{ zoom: 1 }]
   }).then(function() {
     mensaje.textContent = "Cámara con zoom 2x activado.";
   }).catch(function() {
