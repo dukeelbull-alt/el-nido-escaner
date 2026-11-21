@@ -109,8 +109,8 @@ let flashDisponible = false;
     aspectRatio: 1.777,
     videoConstraints: {
       facingMode: "environment",
-      width: { ideal: 1920 },
-      height: { ideal: 1080 }
+      width: { ideal: 2560 },
+height: { ideal: 1440 }
     },
     formatsToSupport: [
       Html5QrcodeSupportedFormats.EAN_13
@@ -136,12 +136,7 @@ let flashDisponible = false;
         },
         function() {}
            ).then(function() {
-          Html5Qrcode.getCameras().then(function(camaras) {
-    mensaje.textContent = "Cámaras detectadas: " +
-      camaras.map(function(c) {
-        return c.label;
-      }).join(" | ");
-  });
+        
         try {
           const capacidades = escaner.getRunningTrackCameraCapabilities();
           flashDisponible = capacidades.torch === true;
