@@ -192,7 +192,11 @@ videoConstraints: {
         },
         function() {}
            ).then(function() {
-        
+                escaner.applyVideoConstraints({
+          advanced: [{ focusMode: "continuous" }]
+        }).catch(function(error) {
+          console.log("El enfoque continuo no está disponible:", error);
+        });
         try {
           const capacidades = escaner.getRunningTrackCameraCapabilities();
           flashDisponible = capacidades.torch === true;
