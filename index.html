@@ -199,6 +199,17 @@ videoConstraints: {
         });
         try {
           const capacidades = escaner.getRunningTrackCameraCapabilities();
+          if (capacidades.zoom) {
+  escaner.applyVideoConstraints({
+    advanced: [{ zoom: 2 }]
+  }).then(function() {
+    mensaje.textContent = "Cámara con zoom 2x activado.";
+  }).catch(function() {
+    mensaje.textContent = "La cámara no permitió activar el zoom.";
+  });
+} else {
+  mensaje.textContent = "Esta cámara no ofrece zoom desde el navegador.";
+}
           flashDisponible = capacidades.torch === true;
 
           const botonFlash = document.getElementById("botonFlash");
