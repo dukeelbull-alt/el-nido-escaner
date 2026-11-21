@@ -66,6 +66,61 @@
     #mensaje {
       overflow-wrap: anywhere;
     }
+    
+/* Diseño horizontal para celulares */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  body {
+    padding: 8px;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.5fr);
+    grid-template-rows: auto auto auto auto 1fr;
+    gap: 6px 18px;
+    max-width: 100%;
+    padding: 12px;
+    align-items: center;
+  }
+
+  main h1,
+  main h2,
+  main > p:first-of-type,
+  #iniciar,
+  #mensaje {
+    grid-column: 1;
+    margin: 4px 0;
+  }
+
+  main h1 { grid-row: 1; }
+  main h2 { grid-row: 2; }
+  main > p:first-of-type { grid-row: 3; }
+  #iniciar { grid-row: 4; }
+  #mensaje { grid-row: 5; }
+
+  #contenedorCamara {
+    grid-column: 2;
+    grid-row: 1 / 6;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    gap: 8px;
+  }
+
+  #reader {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  #reader video {
+    width: 100% !important;
+    max-height: 65vh;
+    height: auto !important;
+    object-fit: contain;
+  }
+}
+
   </style>
 </head>
 <body>
