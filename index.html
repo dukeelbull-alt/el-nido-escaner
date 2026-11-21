@@ -160,7 +160,15 @@ let flashDisponible = false;
   { facingMode: "environment" },
   {
     fps: 15,
-    qrbox: { width: 500, height: 180 },
+    qrbox: function(ancho, alto) {
+  const width = Math.min(ancho * 0.90, 500);
+  const height = Math.min(width * 0.35, alto * 0.45);
+
+  return {
+    width: Math.floor(width),
+    height: Math.floor(height)
+  };
+},
    aspectRatio: 1.777,
 videoConstraints: {
   facingMode: "environment",
