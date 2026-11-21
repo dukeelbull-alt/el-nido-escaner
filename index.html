@@ -136,6 +136,12 @@ let flashDisponible = false;
         },
         function() {}
            ).then(function() {
+          Html5Qrcode.getCameras().then(function(camaras) {
+    mensaje.textContent = "Cámaras detectadas: " +
+      camaras.map(function(c) {
+        return c.label;
+      }).join(" | ");
+  });
         try {
           const capacidades = escaner.getRunningTrackCameraCapabilities();
           flashDisponible = capacidades.torch === true;
