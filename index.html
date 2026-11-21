@@ -160,9 +160,9 @@ let flashDisponible = false;
   { facingMode: "environment" },
   {
     fps: 15,
-    qrbox: function(ancho, alto) {
+   qrbox: function(ancho, alto) {
   const width = Math.min(ancho * 0.95, 550);
-  const height = Math.min(width * 0.40, alto * 0.50);
+  const height = Math.min(width * 0.40, alto * 0.45);
 
   return {
     width: Math.floor(width),
